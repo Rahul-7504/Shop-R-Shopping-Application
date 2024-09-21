@@ -1,0 +1,12 @@
+<h2 class="text-center mt-3">Your Favourite</h2>
+<div class="cart">
+  <div *ngFor="let item of cartItems; let i = index" class="cart-item">
+    <img [src]="item.imageUrl" alt="{{ item.title }}" class="cart-item-img">
+    <div class="cart-item-details">
+      <h5>{{ item.title }}</h5>
+      <p>{{ item.description }}</p>
+      <p>{{item.price}}</p>
+    </div>
+    <button class="remove-btn" (click)="removeFromCart(i)">Remove</button>
+  </div>
+</div>

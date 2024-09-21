@@ -1,0 +1,33 @@
+
+<nav class="headers">
+  <h1 class="font-weight-bold">Shop-R</h1>
+  <div>
+    <input class="font-weight-bold" type="text" placeholder="Search for products" [(ngModel)]="searchTerm">
+    <button (click)="onSearch()">Search</button>
+  </div>
+  <ul>
+    <li><a routerLink="/home" routerLinkActive="active">Home</a></li>
+    <li><a routerLink="/seller" routerLinkActive="active">Seller</a></li>
+    <li><a routerLink="/cart" routerLinkActive="active">Favourites</a></li>
+    <li><a routerLink="/orders" routerLinkActive="active">Orders</a></li>
+    <li><a routerLink="/login" routerLinkActive="active">Login</a></li>
+
+
+  </ul>
+</nav>
+
+<div *ngIf="filteredData.length === 0 && searchTerm">
+  <p>No results found</p>
+</div>
+
+<div *ngIf="filteredData.length > 0">
+  <div *ngFor="let product of filteredData" class="card">
+    <img [src]="product.imageUrl" class="card-img-top" alt="{{ product.title }}">
+    <div class="card-body">
+      <h5 class="card-title">{{ product.title }}</h5>
+      <p class="card-text">{{ product.description }}</p>
+      <a href="#" class="btn btn-primary" (click)="addToCart(product)">Favourite</a>
+      <a href="#" class="btn btn-primary ml-4">Buy</a>
+    </div>
+  </div>
+</div>

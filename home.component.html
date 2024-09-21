@@ -1,0 +1,16 @@
+<!-- home.component.html -->
+ <br>
+<div class="styles">
+  <div *ngFor="let product of products" class="card">
+    <i class="fas fa-times close-icon" (click)="removeCard(product)"></i>
+    <img [src]="product.imageUrl" class="card-img-top" alt="{{ product.title }}">
+    <div class="card-body">
+      <h5 class="card-title">{{ product.title }}</h5>
+      <p class="card-text">{{ product.description }}</p>
+      <p class="card-price font-weight-bold">Price: ${{ product.price }}</p>
+
+      <button class="btn btn-info" (click)="addToCart(product)">Favourite</button>
+      <button class="btn btn-primary ml-4" (click)="openPaymentModal(product)">Buy</button>
+    </div>
+  </div>
+</div>

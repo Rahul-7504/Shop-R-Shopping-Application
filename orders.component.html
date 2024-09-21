@@ -1,0 +1,12 @@
+<div class="orders-container">
+    <h2>My Orders</h2>
+    <div *ngFor="let order of orders; let i = index" class="order-card">
+      <h5>{{ order.title }}</h5>
+      <img [src]="order.imageUrl" class="card-img-top" alt="{{ order.title }}">
+      <p>{{ order.description }}</p>
+      <p>Price: ${{ order.price }}</p>
+      <p>Payment Method: {{ order.paymentMethod }}</p>
+      <button class="btn btn-primary mt-2" (click)="cancelOrder(i)">Cancel Order</button>
+    </div>
+  </div>
+  
